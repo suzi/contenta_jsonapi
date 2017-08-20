@@ -26,7 +26,7 @@ contentacms_files_to_delete_list() {
     'installer.sh'
     'tests'
     '.travis.yml'
-    '.mkdocks.yml'
+    'mkdocks.yml'
     'phpunit.xml'
     )
 
@@ -95,7 +95,7 @@ contentacms_profile_cleanup(){
             continue
         elif [[ " ${list[@]} " =~ " $VAR " ]]; then
             echo "Removing: $profile_contenta/$VAR"
-            sudo rm -rf $profile_contenta/$VAR
+            sudo rm -rf $profile_contenta/$VAR 2> /dev/null # Suppress error when file that is being deleted doesn't exist
         fi
 
     done

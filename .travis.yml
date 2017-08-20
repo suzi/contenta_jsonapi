@@ -28,6 +28,7 @@ env:
 branches:
   only:
     - 8.x-1.x
+    - fix/deployment-release
 
 before_install:
   # Fixes Composer exhausting the memory when using PHP 5.6.
@@ -82,5 +83,6 @@ jobs:
         name: "Release: ${RELEASE_DATE} build ${TRAVIS_BUILD_NUMBER}"
         on:
           # Only release if it $PROJECT_RELEASE_BRANCH gets updated
-          branch: $PROJECT_RELEASE_BRANCH
+          #branch: $PROJECT_RELEASE_BRANCH
+          branch: fix/deployment-release
           repo: "contentacms/contenta_jsonapi"
